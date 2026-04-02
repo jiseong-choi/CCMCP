@@ -1,4 +1,4 @@
-# Commit Message Court MCP
+# Commit Conventional Message Court MCP
 
 Please write better commits with AI.
 
