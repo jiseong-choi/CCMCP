@@ -46,7 +46,7 @@ Add this to your `claude_desktop_config.json`:
     "commit-message-court": {
       "type": "stdio",
       "command": "node",
-      "args": ["C:\\Users\\chrisdnm\\Desktop\\commimWizard\\dist\\index.js"],
+      "args": ["where code is"],
       "env": {}
     }
   }
