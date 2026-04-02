@@ -10,6 +10,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsx src/index.ts",
+    "court": "tsx src/cli.ts",
+    "court:install-hooks": "tsx src/cli.ts install-hooks",
     "test": "vitest run",
     "test:watch": "vitest"
   },

@@ -1,0 +1,2 @@
+#!/bin/sh
+node dist/cli.js commit-msg --message-file "$1"

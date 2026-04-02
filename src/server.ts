@@ -1,7 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { evaluateCourtCase } from "./court/analyze.js";
 import { courtInputSchema, toolInputShape } from "./court/schemas.js";
+import { prosecuteCommit, renderVerdict, requireBetterSubject } from "./court/shared.js";
 import { CourtInput, CourtVerdict } from "./court/types.js";
 
 function asToolResult(verdict: CourtVerdict, isError = false) {
@@ -15,25 +15,6 @@ function asToolResult(verdict: CourtVerdict, isError = false) {
     structuredContent: verdict as unknown as Record<string, unknown>,
     isError
   };
-}
-
-export function prosecuteCommit(input: CourtInput): CourtVerdict {
-  return evaluateCourtCase({ ...input, style: input.style ?? "prosecutor" });
-}
-
-export function requireBetterSubject(input: CourtInput): CourtVerdict {
-  const verdict = evaluateCourtCase({ ...input, style: input.style ?? "judge" });
-  return {
-    ...verdict,
-    required_actions: verdict.required_actions.includes("Replace the subject with a concrete action and scope.")
-      ? verdict.required_actions
-      : ["Replace the subject with a concrete action and scope.", ...verdict.required_actions],
-    rewritten_subject: verdict.rewritten_subject ?? evaluateCourtCase({ ...input, style: "judge" }).rewritten_subject
-  };
-}
-
-export function renderVerdict(input: CourtInput): CourtVerdict {
-  return evaluateCourtCase({ ...input, style: input.style ?? "judge" });
 }
 
 export function createCourtServer(): McpServer {
