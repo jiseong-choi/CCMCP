@@ -1,0 +1,33 @@
+{
+  "name": "commit-message-court-mcp",
+  "version": "0.1.0",
+  "description": "An MCP server that puts bad commit messages on trial.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "commit-message-court-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "mcp",
+    "commit",
+    "conventional-commits",
+    "lint"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.4",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
