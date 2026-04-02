@@ -61,3 +61,7 @@ Then restart Claude Desktop.
 - It sees `final_final_real` and requests counsel.
 - It sees a risky diff and asks for evidence.
 - It sees your commit history and tries, against all odds, to make it readable.
+
+- 
+## License
+- [WTFPL](LICENSE) -- Do What The Fuck You Want To Public License.
